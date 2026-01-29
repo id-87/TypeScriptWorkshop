@@ -1,5 +1,6 @@
 // const exp=require('express')
-const application=require('./server')
+// const application=require('./server')
+import express from 'express'
 
 interface App_Interface{
     startServer():void
@@ -7,15 +8,19 @@ interface App_Interface{
     initializeRoutes():void;
 }
 
-class App implements App_Interface{
+export class App implements App_Interface{
     port:number
-    app:Express.Application
+    app:express.Application
 
     constructor(){
         this.port=4000
-        this.app=application
+        this.app=express()
+        this.startServer()
     }
     startServer(): void {
+        this.app.listen(this.port,()=>{
+            console.log("Server started")
+        })
         
     }
     connectDB(): void {
@@ -25,3 +30,6 @@ class App implements App_Interface{
         
     }
 }
+
+
+// module.exports=App
