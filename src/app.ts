@@ -24,9 +24,11 @@ export class App implements App_Interface{
         
     }
     connectDB(): void {
+
         
     }
     initializeRoutes(): void {
+        
         
     }
 }
